@@ -1,0 +1,15 @@
+﻿@using Demo.Models.Common
+@using Demo.Models.Settings 
+@model Store
+
+
+<h2>Has @ViewBag.CountStore stores!</h2>
+
+<div class="well well-sm">
+    <h3>@Model.Settings["th"].ShopName</h3>
+
+    @foreach(var setting in Model.Settings)
+    {
+        <div>@setting.LanguageCode, @setting.CompanyName</div>
+    }
+</div>
