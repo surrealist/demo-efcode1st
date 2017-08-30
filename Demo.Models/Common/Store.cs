@@ -10,17 +10,27 @@ namespace Demo.Models.Common {
   public class Store {
 
     public Store() {
+      IsActive = true;
+      IsDeleted = false;
       Settings = new StoreSettingCollection();
     }
+     
+    //
     public int Id { get; set; }
-    public virtual StoreSettingCollection Settings { get; set; }
 
-    public bool IsActive { get; private set; } = true;
-    public bool IsDeleted { get; set; } = false;
+    [StringLength(100)]
+    public string Name { get; set; }
 
+    public bool IsActive { get; private set; } 
+    public bool IsDeleted { get; set; } 
+
+    [StringLength(1024)]
     public string Remark { get; set; }
 
-    // methods 
+    public virtual StoreSettingCollection Settings { get; set; } 
+
+
+    // 
     public void Inactivate() {
       if (DateTime.Now.TimeOfDay.TotalHours < 12.0) {
         throw new Exception("You must inactive store before noon!");
@@ -30,7 +40,7 @@ namespace Demo.Models.Common {
     }
 
     public void Activate() {
-      if (IsActive) throw new Exception("You cannot reactivate this store.");
+      if (IsActive) throw new Exception("It was already active. You cannot reactivate this store.");
 
       IsActive = true;
     }

@@ -19,10 +19,15 @@ namespace Demo.Site.Controllers {
     }
 
 
-    public ActionResult Index(int id = 1) {
+    public ActionResult Index() {
       ViewBag.CountStore = db.Stores.Count();
-      var s = db.Stores.Find(id);
-      return View(s);
+       
+      //var q = from s in db.Stores
+      //        where !s.IsDeleted
+      //        select s;
+      //return View(q.ToList());
+
+      return View(db.ActiveStores.ToList());
     }
 
     [HttpPost]
@@ -34,9 +39,21 @@ namespace Demo.Site.Controllers {
       }catch(Exception ex) {
         TempData["Error"] = ex.Message;
       }
-      return RedirectToAction("Index", new { id = id });
+      return RedirectToAction("Index");
     }
 
+    [HttpPost]
+    public ActionResult ActivateStore(int id) {
+      var s = db.Stores.Find(id);
+      try {
+        s.Activate();
+        db.SaveChanges();
+      }
+      catch (Exception ex) {
+        TempData["Error"] = ex.Message;
+      }
+      return RedirectToAction("Index");
+    }
 
     public ActionResult About() {
       ViewBag.Message = "Your application description page.";

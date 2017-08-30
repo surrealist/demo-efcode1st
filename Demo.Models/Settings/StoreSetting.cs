@@ -16,7 +16,7 @@ namespace Demo.Models {
         public string LanguageCode { get; set; }
 
         [StringLength(200)]
-        public string ShopName { get; set; }
+        public string StoreDisplayName { get; set; }
 
         [StringLength(200)]
         public string CompanyName { get; set; }

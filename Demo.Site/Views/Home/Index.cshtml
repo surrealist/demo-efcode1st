@@ -1,9 +1,9 @@
 ﻿@using Demo.Models.Common
-@using Demo.Models.Settings 
-@model Store
+@using Demo.Models.Settings
+@model IEnumerable<Store>
 
 
-<h2>Has @ViewBag.CountStore stores!</h2>
+<h2>Demo</h2>
 
 @if (TempData["Error"] != null) {
 <div class="alert alert-warning alert-dismissible" role="alert">
@@ -13,20 +13,34 @@
 }
 
 <div class="well well-sm">
-    <h3>@Model.Settings["th"].ShopName</h3>
-
-    @foreach(var setting in Model.Settings)
-    {
-        <div>@setting.LanguageCode, @setting.CompanyName</div>
-    }
+  We have @ViewBag.CountStore store(s) with us!
 </div>
 
-<h3>This company is now 
-  <b>@(Model.IsActive? "Active": "Inactive")</b></h3>
+<div>
+  @foreach (var store in Model) {
 
-<form action="~/Home/InactivateStore/@Model.Id"
-      method="post">
-  <button type="submit" class="btn btn-danger">
-    Inactive!
-  </button>
-</form>
+    <h3>@(store.Settings["th"]?.StoreDisplayName)</h3>
+
+    foreach (var setting in store.Settings) {
+      <span><code>@setting.LanguageCode</code> @setting.CompanyName</span>
+    }
+
+    <text>
+      This company is now
+      <span class="text-success">@(store.IsActive ? "active" : "inactive")</span>.
+
+      <form method="post" style="margin-top: 0.5rem;">
+        <button formaction="~/Home/ActivateStore/@store.Id"
+                type="submit" class="btn btn-success btn-xs" disabled="@store.IsActive">
+          activate
+        </button>
+        <button formaction="~/Home/InactivateStore/@store.Id"
+                type="submit" class="btn btn-danger btn-xs" disabled="@(!store.IsActive)">
+          Inactivate
+        </button>
+      </form>
+    </text>
+
+  }
+</div>
+
