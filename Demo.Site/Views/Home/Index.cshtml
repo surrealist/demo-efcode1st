@@ -5,6 +5,13 @@
 
 <h2>Has @ViewBag.CountStore stores!</h2>
 
+@if (TempData["Error"] != null) {
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  @TempData["Error"]
+</div>
+}
+
 <div class="well well-sm">
     <h3>@Model.Settings["th"].ShopName</h3>
 
@@ -13,3 +20,13 @@
         <div>@setting.LanguageCode, @setting.CompanyName</div>
     }
 </div>
+
+<h3>This company is now 
+  <b>@(Model.IsActive? "Active": "Inactive")</b></h3>
+
+<form action="~/Home/InactivateStore/@Model.Id"
+      method="post">
+  <button type="submit" class="btn btn-danger">
+    Inactive!
+  </button>
+</form>
