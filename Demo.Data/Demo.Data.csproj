@@ -48,6 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepository_T.cs" />
+    <Compile Include="Migrations\201709020912140_InitialCreate.cs" />
+    <Compile Include="Migrations\201709020912140_InitialCreate.Designer.cs">
+      <DependentUpon>201709020912140_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709020943128_Ticket TurnOffAutoNumber.cs" />
+    <Compile Include="Migrations\201709020943128_Ticket TurnOffAutoNumber.Designer.cs">
+      <DependentUpon>201709020943128_Ticket TurnOffAutoNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="RepositoryBase_T.cs" />
     <Compile Include="ServiceRepository.cs" />
     <Compile Include="StoreDb.cs" />
@@ -62,6 +71,14 @@
       <Project>{33D746E4-834D-4635-B872-257B3AA90D58}</Project>
       <Name>Demo.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709020912140_InitialCreate.resx">
+      <DependentUpon>201709020912140_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709020943128_Ticket TurnOffAutoNumber.resx">
+      <DependentUpon>201709020943128_Ticket TurnOffAutoNumber.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

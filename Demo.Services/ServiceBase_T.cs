@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Demo.Services {
   public class ServiceBase<T> : IService<T> where T : class {
+
     private readonly IRepository<T> repo;
 
     public ServiceBase(IRepository<T> repo) {
