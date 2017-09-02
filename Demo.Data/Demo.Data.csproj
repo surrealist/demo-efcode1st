@@ -47,27 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201707300548169_InitialCreate.cs" />
-    <Compile Include="Migrations\201707300548169_InitialCreate.Designer.cs">
-      <DependentUpon>201707300548169_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707300601499_AddShopName.cs" />
-    <Compile Include="Migrations\201707300601499_AddShopName.Designer.cs">
-      <DependentUpon>201707300601499_AddShopName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708301350051_AddStoreRemark.cs" />
-    <Compile Include="Migrations\201708301350051_AddStoreRemark.Designer.cs">
-      <DependentUpon>201708301350051_AddStoreRemark.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708301625167_AddStoreName.cs" />
-    <Compile Include="Migrations\201708301625167_AddStoreName.Designer.cs">
-      <DependentUpon>201708301625167_AddStoreName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708301626197_AddStoreName1.cs" />
-    <Compile Include="Migrations\201708301626197_AddStoreName1.Designer.cs">
-      <DependentUpon>201708301626197_AddStoreName1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="IRepository_T.cs" />
+    <Compile Include="RepositoryBase_T.cs" />
+    <Compile Include="ServiceRepository.cs" />
     <Compile Include="StoreDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,23 +62,6 @@
       <Project>{33D746E4-834D-4635-B872-257B3AA90D58}</Project>
       <Name>Demo.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707300548169_InitialCreate.resx">
-      <DependentUpon>201707300548169_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707300601499_AddShopName.resx">
-      <DependentUpon>201707300601499_AddShopName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708301350051_AddStoreRemark.resx">
-      <DependentUpon>201708301350051_AddStoreRemark.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708301625167_AddStoreName.resx">
-      <DependentUpon>201708301625167_AddStoreName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708301626197_AddStoreName1.resx">
-      <DependentUpon>201708301626197_AddStoreName1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

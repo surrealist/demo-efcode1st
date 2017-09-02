@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Store.cs" />
+    <Compile Include="Queuing\Service.cs" />
+    <Compile Include="Queuing\Ticket.cs" />
     <Compile Include="Settings\StoreSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\StoreSettingCollection.cs" />

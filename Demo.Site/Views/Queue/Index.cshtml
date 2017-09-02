@@ -1,0 +1,17 @@
+﻿@using Demo.Models.Queuing
+@model IEnumerable<Service>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Queue System</h2>
+
+@foreach(var s in Model) {
+
+  <button class="btn btn-default">
+    @s.Name
+  </button>
+
+}
+

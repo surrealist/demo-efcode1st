@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IService_T.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queuing\QueueService.cs" />
+    <Compile Include="ServiceBase_T.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Settings\" />
@@ -55,6 +58,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Data\Demo.Data.csproj">
+      <Project>{C8B6F1CE-19D4-45E8-884A-522A40F3DC54}</Project>
+      <Name>Demo.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demo.Models\Demo.Models.csproj">
+      <Project>{33D746E4-834D-4635-B872-257B3AA90D58}</Project>
+      <Name>Demo.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
